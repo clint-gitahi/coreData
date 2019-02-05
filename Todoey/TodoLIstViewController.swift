@@ -47,6 +47,24 @@ class TodoListViewController: UITableViewController {
         // removes the constant grey on selecting a row
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
+    
+    
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "Add a new Todo", message:"", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add item", style: .default) { (action) in
+            print("Success")
+        }
+        
+        
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
