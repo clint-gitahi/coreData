@@ -56,6 +56,11 @@ class TodoListViewController: UITableViewController {
     // TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        /*
+         // if we were to delete items in a row and from coredata we would do the following:
+        context.delete(itemArray[indexPath.row])
+        itemArray.remove(at: indexPath.row)
+         */
         
         /*
         if itemArray[indexPath.row].done == false {
