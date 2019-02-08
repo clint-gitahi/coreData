@@ -15,19 +15,16 @@ class TodoListViewController: UITableViewController {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        
+       
         loadItems()
         
     }
     
-    // TableView DataSource Methods
-    
+    // MARK:- TableView DataSource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
@@ -50,8 +47,7 @@ class TodoListViewController: UITableViewController {
         return cell
     }
     
-    // TableView Delegate Methods
-    
+    // MARK:- TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         /*
          // if we were to delete items in a row and from coredata we would do the following:
@@ -85,8 +81,6 @@ class TodoListViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             
-            
-            
             // we add whatever we typed on the textfield
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
@@ -95,8 +89,6 @@ class TodoListViewController: UITableViewController {
             self.itemArray.append(newItem)
             
             self.saveItems()
-            
-            
             
         }
         
@@ -124,9 +116,7 @@ class TodoListViewController: UITableViewController {
     }
     
     func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
-        
-//        let request : NSFetchRequest<Item> = Item.fetchRequest()
-        
+       
         do {
             itemArray = try context.fetch(request)
         } catch {
@@ -139,7 +129,6 @@ class TodoListViewController: UITableViewController {
 }
 
 //MARK: - Search bar methods
-
 extension TodoListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
